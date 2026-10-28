@@ -1,0 +1,12 @@
+# Environnement Python
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Données : elles restent dans la zone raw, pas dans Git
+data/
+*.duckdb
+
+# Sorties générées
+mlruns/
+*.log
