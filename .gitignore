@@ -12,3 +12,4 @@ mlruns/
 *.log
 logs/
 .python-version
+.env
