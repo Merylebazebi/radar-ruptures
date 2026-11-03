@@ -4,7 +4,7 @@ Pipeline de données qui collecte chaque jour les signalements de tensions et de
 
 Projet de certification **Data Lead – Jedha**.
 
-**Tableau de bord en ligne :** https://appappppy-78wpnfzzhq9uztparzbibh.streamlit.app
+**Tableau de bord en ligne :** https://radar-ruptures-medicaments-mb.streamlit.app
 
 ---
 
