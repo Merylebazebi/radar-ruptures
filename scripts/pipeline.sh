@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Pipeline quotidien : ingestion -> chargement -> transformation + tests qualité.
+# Pipeline quotidien : ingestion -> chargement -> transformation + tests qualité -> scoring ML.
 # Lancé par cron. Chaque étape est idempotente : relancer le pipeline plusieurs
 # fois par jour ne crée ni doublon ni retéléchargement.
 #
@@ -15,7 +15,7 @@ LOG=logs/pipeline.log
 STATUT=0
 
 echo "===== $(date '+%Y-%m-%d %H:%M:%S') début du pipeline" >> $LOG
-for etape in ingestion chargement transformation; do
+for etape in ingestion chargement transformation scoring; do
     if ! $PYTHON src/$etape.py >> $LOG 2>&1; then
         echo "ÉCHEC : $etape" >> $LOG
         STATUT=1

@@ -30,7 +30,7 @@ from chargement import LOG_DIR, connexion
 
 RACINE = Path(__file__).resolve().parents[1]
 SQL_DIR = RACINE / "sql"
-COUCHES = ["staging"]  # les marts viendront s'ajouter ici, dans l'ordre d'exécution
+COUCHES = ["staging", "marts"]  # dans l'ordre d'exécution
 
 log = logging.getLogger("transformation")
 

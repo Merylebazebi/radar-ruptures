@@ -37,13 +37,15 @@ def base(tmp_path, monkeypatch):
     monkeypatch.setenv("DATABASE_URL", URL_TEST)
     engine = create_engine(URL_TEST)
     with engine.begin() as cnx:
-        for schema in ("raw", "staging"):
+        for schema in ("raw", "staging", "marts"):
             cnx.execute(text(f"DROP SCHEMA IF EXISTS {schema} CASCADE"))
 
     raw = tmp_path / "data" / "raw"
     jour = f"date={AUJOURD_HUI}"
     ruptures = [ligne_rupture(60000000 + i) for i in range(150)]
     ruptures.append(ligne_rupture(60000000))  # doublon exact
+    ruptures.append(ligne_rupture(69999999, statut="2"))  # CIS absent du référentiel
+    ruptures.append(ligne_rupture(60000003, statut="3", debut="01/06/2030"))  # début annoncé dans le futur
     ecrire(raw / "ruptures" / jour / "CIS_CIP_Dispo_Spec.txt", ruptures)
     ecrire(raw / "referentiel" / jour / "CIS_bdpm.txt",
            [f"{60000000 + i}\tDOLIPRANE 1000 mg, comprimé\tcomprimé\torale\tAutorisation active\tProcédure nationale\tCommercialisée\t01/01/2000\t\t\tOPELLA\tNon" for i in range(150)])
@@ -67,7 +69,7 @@ def requete(engine, sql):
 def test_construit_le_staging_et_les_tests_passent(base):
     _, engine = base
     assert transformation.main([]) == 0
-    assert requete(engine, "SELECT count(*) FROM staging.stg_ruptures")[0][0] == 150  # doublon retiré
+    assert requete(engine, "SELECT count(*) FROM staging.stg_ruptures")[0][0] == 152  # doublon retiré
 
 
 def test_convertit_dates_et_statuts(base):
@@ -113,3 +115,32 @@ def test_une_erreur_sql_laisse_la_base_intacte(base, monkeypatch):
         transformation.main([])
     tables = {t for (t,) in requete(engine, "SELECT table_name FROM information_schema.tables WHERE table_schema = 'staging'")}
     assert "stg_ruptures" in tables and "a_ok" not in tables
+
+
+def test_construit_le_modele_en_etoile(base):
+    _, engine = base
+    assert transformation.main([]) == 0
+    assert requete(engine, "SELECT count(*) FROM marts.fct_signalements")[0][0] == 152
+    assert requete(engine, "SELECT count(*) FROM marts.dim_statut")[0][0] == 4
+
+
+def test_dim_medicament_enrichie_par_mitm_et_generiques(base):
+    _, engine = base
+    transformation.main([])
+    est_mitm, atc, princeps = requete(engine, "SELECT est_mitm, code_atc, est_princeps FROM marts.dim_medicament WHERE cis = '60000000'")[0]
+    assert est_mitm is True and atc == "N02BE01" and princeps is True
+
+
+def test_cis_hors_referentiel_ajoute_a_la_dimension(base):
+    _, engine = base
+    transformation.main([])
+    (dans_referentiel,) = requete(engine, "SELECT dans_referentiel FROM marts.dim_medicament WHERE cis = '69999999'")[0]
+    assert dans_referentiel is False
+
+
+def test_duree_et_statut_en_cours(base):
+    _, engine = base
+    transformation.main([])
+    en_cours, duree = requete(engine, "SELECT est_en_cours, duree_jours FROM marts.fct_signalements WHERE cis = '60000002'")[0]
+    assert en_cours is True  # pas de date de remise
+    assert duree == (date.today() - date(2026, 10, 1)).days

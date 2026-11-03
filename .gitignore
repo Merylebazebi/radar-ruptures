@@ -13,3 +13,5 @@ mlruns/
 logs/
 .python-version
 .env
+mlflow.db
+mlruns/
