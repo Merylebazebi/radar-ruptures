@@ -1,0 +1,6 @@
+date_scoring,statut,niveau_risque,nb_signalements
+2026-11-03,Tension d'approvisionnement,2 - moyen,79
+2026-11-03,Tension d'approvisionnement,3 - faible,392
+2026-11-03,Rupture de stock,2 - moyen,6
+2026-11-03,Tension d'approvisionnement,1 - élevé,27
+2026-11-03,Rupture de stock,1 - élevé,57
