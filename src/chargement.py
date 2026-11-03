@@ -59,7 +59,9 @@ SOURCES = {
         "id_groupe", "libelle_groupe", "cis", "type_generique", "numero_tri",
     ]),
     "CIS_MITM.txt": ("referentiel", "mitm", [
-        "cis", "code_atc", "denomination", "lien_bdpm",
+        # 7 champs constatés sur le fichier réel (novembre 2026). Le sens de la
+        # date n'est pas précisé dans les données : à confirmer dans la doc BDPM.
+        "cis", "code_atc", "denomination", "titulaire", "exploitant", "date_mitm", "lien_bdpm",
     ]),
 }
 
@@ -121,10 +123,26 @@ def lire_fichier(chemin, colonnes):
     return df
 
 
+def colonnes_en_base(cnx, table):
+    resultat = cnx.execute(text(
+        "SELECT column_name FROM information_schema.columns "
+        "WHERE table_schema = 'raw' AND table_name = :table ORDER BY ordinal_position"
+    ), {"table": table})
+    return [c for (c,) in resultat]
+
+
 def creer_tables(engine):
+    """Crée les tables du schéma raw. Si les colonnes d'une table ne correspondent
+    plus à SOURCES, la table est recréée : le raw se reconstruit toujours depuis
+    les fichiers, et le chargement suivant recharge toutes ses dates."""
     with engine.begin() as cnx:
         cnx.execute(text("CREATE SCHEMA IF NOT EXISTS raw"))
         for _, table, colonnes in SOURCES.values():
+            attendues = colonnes + [COLONNE_SURPLUS] + COLONNES_TECHNIQUES
+            actuelles = colonnes_en_base(cnx, table)
+            if actuelles and actuelles != attendues:
+                log.warning("raw.%s : colonnes modifiées, table recréée (toutes les dates seront rechargées)", table)
+                cnx.execute(text(f"DROP TABLE raw.{table}"))
             definition = ",\n    ".join(f"{c} TEXT" for c in colonnes + [COLONNE_SURPLUS])
             cnx.execute(text(f"""
                 CREATE TABLE IF NOT EXISTS raw.{table} (

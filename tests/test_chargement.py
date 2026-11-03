@@ -117,3 +117,15 @@ def test_trace_le_fichier_source(projet):
     with engine.connect() as cnx:
         source = cnx.execute(text("SELECT fichier_source FROM raw.ruptures WHERE date_snapshot = '2026-11-02'")).scalar()
     assert source == "data/raw/ruptures/date=2026-11-02/CIS_CIP_Dispo_Spec.txt"
+
+
+@avec_base
+def test_table_recreee_si_les_colonnes_changent(projet, monkeypatch):
+    _, engine = projet
+    chargement.main([])
+    zone, table, colonnes = chargement.SOURCES["CIS_CIP_Dispo_Spec.txt"]
+    monkeypatch.setitem(chargement.SOURCES, "CIS_CIP_Dispo_Spec.txt", (zone, table, colonnes + ["nouvelle"]))
+    assert chargement.main([]) == 0
+    with engine.connect() as cnx:
+        assert "nouvelle" in chargement.colonnes_en_base(cnx, "ruptures")
+    assert compter(engine) == 3  # toutes les dates rechargées, sans doublon
