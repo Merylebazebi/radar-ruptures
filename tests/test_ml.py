@@ -107,10 +107,18 @@ def test_scoring_ecrit_les_predictions_sans_doublon(mlflow_temporaire, tmp_path,
         cnx.execute(text("DROP SCHEMA IF EXISTS marts CASCADE"))
         cnx.execute(text("CREATE SCHEMA marts"))
     df.to_sql("ml_signalements_ouverts", engine, schema="marts", index=False)
+    # Dimensions minimales dont dépend la vue v_alertes
+    pd.DataFrame({"code_statut": [1, 2], "libelle": ["Rupture de stock", "Tension"]}).to_sql("dim_statut", engine, schema="marts", index=False)
+    df[["cis"]].assign(denomination="MEDICAMENT TEST", titulaires="LABO", est_mitm=df["est_mitm"],
+                       classe_atc_niveau1=df["classe_atc_niveau1"], nb_specialites_groupe=df["nb_specialites_groupe"]
+                       ).to_sql("dim_medicament", engine, schema="marts", index=False)
+    pd.DataFrame({"cip13": pd.Series(dtype=str), "libelle_presentation": pd.Series(dtype=str)}).to_sql("dim_presentation", engine, schema="marts", index=False)
 
     assert scoring.main([]) == 0
     assert scoring.main([]) == 0  # relancé le même jour : remplace, ne duplique pas
     with engine.connect() as cnx:
         nb = cnx.execute(text("SELECT count(*) FROM marts.predictions")).scalar()
+        alertes = cnx.execute(text("SELECT count(*), count(DISTINCT niveau_risque) FROM marts.v_alertes WHERE est_dernier_scoring")).fetchone()
     assert nb == len(df)
+    assert alertes[0] == len(df) and alertes[1] >= 2
     engine.dispose()

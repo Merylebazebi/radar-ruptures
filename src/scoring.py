@@ -1,6 +1,6 @@
 """Scoring quotidien : applique le modèle « champion » aux signalements ouverts.
 
-Résultat dans marts.predictions (la couche de service lue par le tableau de bord) :
+Résultat dans marts.predictions, puis dans la vue marts.v_alertes lue par le tableau de bord :
 une ligne par signalement ouvert et par jour de scoring, avec la probabilité d'être
 une rupture. Pour une tension, une probabilité élevée signale un risque d'aggravation.
 
@@ -12,6 +12,7 @@ Utilisation :
 import logging
 import sys
 from datetime import date
+from pathlib import Path
 
 import mlflow
 import pandas as pd
@@ -19,6 +20,8 @@ from sqlalchemy import text
 
 from chargement import LOG_DIR, connexion
 from entrainement import MLFLOW_URI, NOM_MODELE, TABLE, preparer
+
+VUE_ALERTES = Path(__file__).resolve().parents[1] / "sql" / "service" / "v_alertes.sql"
 
 log = logging.getLogger("scoring")
 
@@ -66,6 +69,8 @@ def main(argv=None):
             )"""))
         cnx.execute(text("DELETE FROM marts.predictions WHERE date_scoring = :jour"), {"jour": jour})
         predictions.to_sql("predictions", cnx, schema="marts", if_exists="append", index=False)
+        # La vue lue par Power BI dépend des marts, recréés par transformation.py : on la recrée ici.
+        cnx.execute(text(VUE_ALERTES.read_text(encoding="utf-8")))
 
     tensions = predictions[predictions["code_statut"] == 2]
     log.info("%d signalements scorés avec %s version %s", len(predictions), NOM_MODELE, version.version)

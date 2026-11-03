@@ -15,3 +15,5 @@ logs/
 .env
 mlflow.db
 mlruns/
+.hypothesis/
+.agents/
