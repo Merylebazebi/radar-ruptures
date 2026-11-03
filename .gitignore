@@ -10,3 +10,5 @@ data/
 # Sorties générées
 mlruns/
 *.log
+logs/
+.python-version
