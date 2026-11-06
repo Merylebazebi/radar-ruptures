@@ -1,16 +1,21 @@
 date_scoring,statut,niveau_risque,nb_signalements
-2026-11-03,Tension d'approvisionnement,2 - moyen,79
-2026-11-03,Tension d'approvisionnement,3 - faible,392
-2026-11-03,Tension d'approvisionnement,1 - élevé,27
 2026-11-03,Rupture de stock,2 - moyen,6
+2026-11-03,Tension d'approvisionnement,2 - moyen,79
 2026-11-03,Rupture de stock,1 - élevé,57
-2026-11-04,Rupture de stock,1 - élevé,55
-2026-11-04,Tension d'approvisionnement,2 - moyen,77
+2026-11-03,Tension d'approvisionnement,1 - élevé,27
+2026-11-03,Tension d'approvisionnement,3 - faible,392
 2026-11-04,Rupture de stock,2 - moyen,7
 2026-11-04,Tension d'approvisionnement,3 - faible,393
+2026-11-04,Tension d'approvisionnement,2 - moyen,77
 2026-11-04,Tension d'approvisionnement,1 - élevé,30
-2026-11-05,Tension d'approvisionnement,1 - élevé,30
-2026-11-05,Rupture de stock,2 - moyen,7
+2026-11-04,Rupture de stock,1 - élevé,55
 2026-11-05,Tension d'approvisionnement,2 - moyen,77
 2026-11-05,Tension d'approvisionnement,3 - faible,393
+2026-11-05,Tension d'approvisionnement,1 - élevé,30
+2026-11-05,Rupture de stock,2 - moyen,7
 2026-11-05,Rupture de stock,1 - élevé,55
+2026-11-06,Tension d'approvisionnement,3 - faible,392
+2026-11-06,Tension d'approvisionnement,2 - moyen,78
+2026-11-06,Rupture de stock,2 - moyen,7
+2026-11-06,Tension d'approvisionnement,1 - élevé,30
+2026-11-06,Rupture de stock,1 - élevé,55
