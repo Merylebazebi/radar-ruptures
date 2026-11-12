@@ -53,19 +53,19 @@ date_scoring,medicament,presentation,laboratoire,statut,est_mitm,classe_atc,nb_a
 2026-11-12,"BAQSIMI 3 mg, poudre nasale en récipient unidose",,AMPHASTAR FRANCE PHARMACEUTICALS,Tension d'approvisionnement,True,H,0,0.6001,1 - élevé,67972497,
 2026-11-12,"KAYEXALATE, poudre pour suspension orale et rectale",,PHARMA LAB,Tension d'approvisionnement,False,inconnue,0,0.59,1 - élevé,62073400,
 2026-11-12,"FIVASA 400 mg, comprimé enrobé gastrorésistant",,TILLOTTS PHARMA (ALLEMAGNE),Tension d'approvisionnement,True,A,0,0.588,1 - élevé,68501338,
-2026-11-12,(absent du référentiel),,,Tension d'approvisionnement,False,inconnue,0,0.5851,1 - élevé,69103839,
 2026-11-12,(absent du référentiel),,,Tension d'approvisionnement,False,inconnue,0,0.5851,1 - élevé,65312236,
+2026-11-12,(absent du référentiel),,,Tension d'approvisionnement,False,inconnue,0,0.5851,1 - élevé,69103839,
 2026-11-12,"CIDERMEX, pommade ophtalmique",,PAD PHARMACEUTIQUE DESGROPPES,Tension d'approvisionnement,False,inconnue,0,0.578,1 - élevé,65539860,
 2026-11-12,"RISPERIDONE VIATRIS 3 mg, comprimé orodispersible",,VIATRIS SANTE,Rupture de stock,True,N,2,0.5778,1 - élevé,66172552,
 2026-11-12,"DEXOCOL 1 mg/mL, collyre en solution",,HORUS PHARMA,Tension d'approvisionnement,True,S,0,0.5731,1 - élevé,68106914,
-2026-11-12,"TARKA LP 180 mg/2 mg, comprimé pelliculé à libération prolongée",plaquette(s) thermoformée(s) PVC PVDC aluminium de 30 comprimé(s),VIATRIS MEDICAL,Rupture de stock,True,C,0,0.5645,1 - élevé,62404028,3400937125574
 2026-11-12,"TARKA LP 180 mg/2 mg, comprimé pelliculé à libération prolongée",plaquette(s) thermoformée(s) PVC PVDC aluminium de 90 comprimé(s),VIATRIS MEDICAL,Rupture de stock,True,C,0,0.5645,1 - élevé,62404028,3400937136860
+2026-11-12,"TARKA LP 180 mg/2 mg, comprimé pelliculé à libération prolongée",plaquette(s) thermoformée(s) PVC PVDC aluminium de 30 comprimé(s),VIATRIS MEDICAL,Rupture de stock,True,C,0,0.5645,1 - élevé,62404028,3400937125574
 2026-11-12,"RIFINAH 300 mg/150 mg, comprimé enrobé",,SANOFI WINTHROP INDUSTRIE,Tension d'approvisionnement,True,J,0,0.5642,1 - élevé,63898512,
 2026-11-12,"BICAFRES 1000 mg, comprimé gastro-résistant",,FRESENIUS MEDICAL CARE DEUTSCHLAND (ALLEMAGNE),Rupture de stock,True,A,0,0.5598,1 - élevé,64610621,
 2026-11-12,"PLERIXAFOR ARROW 20 mg/mL, solution injectable",,EUGIA PHARMA (MALTA) (MALTE),Rupture de stock,True,L,8,0.5591,1 - élevé,69389575,
 2026-11-12,"YELLOX 0,9 mg/ml, collyre en solution",,BAUSCH + LOMB IRELAND (IRLANDE),Rupture de stock,True,S,0,0.5571,1 - élevé,64304674,
-2026-11-12,"HOLOXAN 2000 mg, poudre pour usage parentéral",,BAXTER,Tension d'approvisionnement,True,L,0,0.5571,1 - élevé,69622218,
 2026-11-12,"HOLOXAN 1000 mg, poudre pour solution injectable",,BAXTER,Tension d'approvisionnement,True,L,0,0.5571,1 - élevé,61848140,
+2026-11-12,"HOLOXAN 2000 mg, poudre pour usage parentéral",,BAXTER,Tension d'approvisionnement,True,L,0,0.5571,1 - élevé,69622218,
 2026-11-12,"FLUORESCEINE FAURE 0,5 POUR CENT, collyre en solution en récipient unidose",,SERB (BELGIQUE),Tension d'approvisionnement,True,S,0,0.555,1 - élevé,69497711,
 2026-11-12,"PIPERACILLINE PANPHARMA 4 g, poudre pour solution injectable (I.M., I.V.)",,PANPHARMA,Tension d'approvisionnement,True,J,0,0.5502,1 - élevé,60284142,
 2026-11-12,"VIROPHTA, préparation pour collyre (lyophilisat et solvant)",,HORUS PHARMA,Tension d'approvisionnement,True,S,0,0.5479,1 - élevé,63833888,
@@ -81,14 +81,14 @@ date_scoring,medicament,presentation,laboratoire,statut,est_mitm,classe_atc,nb_a
 2026-11-12,(absent du référentiel),,,Tension d'approvisionnement,False,inconnue,0,0.522,1 - élevé,60616687,
 2026-11-12,"IKERVIS 1 mg/mL, collyre en émulsion",,SANTEN OY,Tension d'approvisionnement,True,S,0,0.5185,1 - élevé,65881230,
 2026-11-12,"ZENTEL 400 mg, comprimé",,GLAXOSMITHKLINE,Tension d'approvisionnement,True,P,0,0.5155,1 - élevé,65565944,
-2026-11-12,"POMALIDOMIDE VIATRIS 3 mg, gélule",,VIATRIS (IRLANDE),Rupture de stock,True,L,10,0.5125,1 - élevé,60310808,
 2026-11-12,"POMALIDOMIDE VIATRIS 4 mg, gélule",,VIATRIS (IRLANDE),Rupture de stock,True,L,10,0.5125,1 - élevé,60945985,
+2026-11-12,"POMALIDOMIDE VIATRIS 3 mg, gélule",,VIATRIS (IRLANDE),Rupture de stock,True,L,10,0.5125,1 - élevé,60310808,
 2026-11-12,"ATGAM 50 mg/mL, solution à diluer pour perfusion",,PFIZER HOLDING FRANCE,Tension d'approvisionnement,True,L,0,0.5113,1 - élevé,60589496,
 2026-11-12,"FLUOROURACILE ACCORD 50 mg/ml, solution à diluer pour perfusion",1 flacon(s) en verre de 100 ml,ACCORD HEALTHCARE FRANCE,Tension d'approvisionnement,True,L,1,0.5012,1 - élevé,65502207,3400957518288
 2026-11-12,"NILEMDO 180 mg, comprimé pelliculé",,DAIICHI SANKYO EUROPE (ALLEMAGNE),Tension d'approvisionnement,False,inconnue,0,0.497,2 - moyen,61328727,
 2026-11-12,"KAYEXALATE, poudre pour suspension orale et rectale",,BB FARMA (ITALIE),Tension d'approvisionnement,False,inconnue,0,0.4874,2 - moyen,65475361,
-2026-11-12,"MOVIPREP, poudre pour solution buvable",,NORGINE (PAYS-BAS),Tension d'approvisionnement,True,A,0,0.4815,2 - moyen,61095956,
 2026-11-12,"MOVIPREP ORANGE, poudre pour solution buvable",,NORGINE (PAYS-BAS),Tension d'approvisionnement,True,A,0,0.4815,2 - moyen,62693853,
+2026-11-12,"MOVIPREP, poudre pour solution buvable",,NORGINE (PAYS-BAS),Tension d'approvisionnement,True,A,0,0.4815,2 - moyen,61095956,
 2026-11-12,"NOVORAPID PUMPCART 100 unités/ml, solution injectable en cartouche",,NOVO NORDISK (DANEMARK),Tension d'approvisionnement,True,A,0,0.4798,2 - moyen,62278832,
 2026-11-12,"FLUOROURACILE PFIZER 50 mg/mL, solution à diluer pour perfusion",1 flacon(s) en verre de 100 ml,PFIZER HOLDING FRANCE,Rupture de stock,True,L,0,0.4789,2 - moyen,64590923,3400955090250
 2026-11-12,"IOMERON 250 (250 mg Iode/mL), solution injectable",1 flacon(s) en verre de 100 ml,BRACCO IMAGING FRANCE,Tension d'approvisionnement,True,V,0,0.4784,2 - moyen,63392333,3400933792763
@@ -131,8 +131,8 @@ date_scoring,medicament,presentation,laboratoire,statut,est_mitm,classe_atc,nb_a
 2026-11-12,"SINGULAIR 10 mg, comprimé pelliculé",,BB FARMA (ITALIE),Tension d'approvisionnement,False,inconnue,0,0.3868,2 - moyen,67128676,
 2026-11-12,"KYTRIL 3 mg/3 ml, solution injectable",1 ampoule(s) en verre de 3 ml,ATNAHS PHARMA NETHERLANDS (PAYS-BAS),Tension d'approvisionnement,True,A,0,0.3862,2 - moyen,69000764,3400933935436
 2026-11-12,"LUTRELEF 3,2 mg, poudre et solvant pour solution injectable",,FERRING (FRANCE),Tension d'approvisionnement,True,H,0,0.386,2 - moyen,61731639,
-2026-11-12,"PENTASA 2 g, granulés en sachet-dose",,FERRING (FRANCE),Tension d'approvisionnement,True,A,0,0.3835,2 - moyen,62217530,
 2026-11-12,"PENTASA 1 g, granulés en sachet",,FERRING (FRANCE),Tension d'approvisionnement,True,A,0,0.3835,2 - moyen,66154593,
+2026-11-12,"PENTASA 2 g, granulés en sachet-dose",,FERRING (FRANCE),Tension d'approvisionnement,True,A,0,0.3835,2 - moyen,62217530,
 2026-11-12,"COLCHIMAX, comprimé pelliculé sécable",,LABORATOIRES MAYOLY SPINDLER,Tension d'approvisionnement,True,M,0,0.3829,2 - moyen,61331730,
 2026-11-12,"EMEND 125 mg, poudre pour suspension buvable",,MERCK SHARP & DOHME (PAYS-BAS),Tension d'approvisionnement,True,A,0,0.3755,2 - moyen,61951090,
 2026-11-12,"MYDRIATICUM 0,5 POUR CENT, collyre",1 flacon(s) polyéthylène de 10 ml avec compte-gouttes,THEA,Tension d'approvisionnement,True,S,0,0.3753,2 - moyen,62915154,3400930694985
